@@ -25,7 +25,7 @@ window.CATALOGO_CONFIG = {
 
   // Integração Opcional com Nuvem (Supabase)
   supabase: {
-    url: "",      // Ex: https://sua-empresa.supabase.co
-    anonKey: ""  // Sua chave pública anon
+    url: "https://dyjuhkhkavkqpwxbrlwy.supabase.co",      // Ex: https://sua-empresa.supabase.co
+    anonKey: "sb_publishable_co7VpOJpXKClOB6mUqhcjg_BoWQN2OY"  // Sua chave pública anon
   }
 };
