@@ -657,6 +657,20 @@ body {
   box-shadow: 0 8px 24px rgba(0,0,0,.2);
 }
 
+.dedetizacao-banner-cta {
+  background: linear-gradient(135deg, #1c1917 0%, #292524 100%);
+  border-color: #57534e;
+  margin-top: 28px;
+}
+
+.btn-dev-cta--laranja {
+  background: #ea580c !important;
+}
+
+.btn-dev-cta--laranja:hover {
+  background: #c2410c !important;
+}
+
 .dev-cta-icon {
   font-size: 32px;
   flex: 0 0 auto;
@@ -738,6 +752,158 @@ body {
 
 .dev-main-content {
   margin-top: -24px;
+}
+
+/* ─── Aba 3: Oliveira Dedetização ─── */
+.dedetizacao-hero {
+  background: linear-gradient(135deg, #1c1917 0%, #292524 50%, #44403c 100%);
+  color: #fff;
+  padding: 44px 20px 50px;
+  text-align: center;
+}
+
+.dedetizacao-hero-content {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.dedetizacao-badge {
+  display: inline-block;
+  background: rgba(234, 88, 12, 0.25);
+  border: 1px solid rgba(249, 115, 22, 0.4);
+  color: #fdba74;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.dedetizacao-hero h2 {
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+
+.dedetizacao-hero p {
+  font-size: 15px;
+  color: #e7e5e4;
+  line-height: 1.6;
+}
+
+.btn-dedetizacao-cta {
+  background: #ea580c;
+  color: #fff;
+  border: 0;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
+  transition: all .16s ease;
+}
+
+.btn-dedetizacao-cta:hover {
+  background: #c2410c;
+  transform: translateY(-2px);
+}
+
+.btn-dedetizacao-wa {
+  background: #25d366;
+  color: #fff;
+  border: 0;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all .16s ease;
+}
+
+.btn-dedetizacao-wa:hover {
+  background: #16a34a;
+  transform: translateY(-2px);
+}
+
+.highlight-card--dedetizacao {
+  border-color: #ea580c !important;
+  box-shadow: 0 0 0 1px #ea580c, var(--shadow) !important;
+}
+
+.dedetizacao-portal-card {
+  margin-top: 36px;
+  background: linear-gradient(135deg, #1c1917 0%, #292524 100%);
+  border: 1px solid #44403c;
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+  color: #fff;
+}
+
+.portal-badge-promo {
+  display: inline-block;
+  background: #ea580c;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 900;
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: .05em;
+  margin-bottom: 12px;
+}
+
+.dedetizacao-portal-card h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fafaf9;
+  margin-bottom: 8px;
+}
+
+.dedetizacao-portal-card p {
+  font-size: 14px;
+  color: #a8a29e;
+  max-width: 600px;
+  margin: 0 auto 20px;
+  line-height: 1.5;
+}
+
+.portal-action-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-portal-site {
+  background: #ea580c;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all .16s ease;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.4);
+}
+
+.btn-portal-site:hover {
+  background: #c2410c;
+  transform: translateY(-2px);
+}
+
+.tab-badge--laranja {
+  background: #ea580c !important;
 }
 
 .dev-services-grid {
