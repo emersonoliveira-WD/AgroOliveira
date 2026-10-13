@@ -637,6 +637,51 @@ body {
   background: var(--whatsapp-hover);
 }
 
+/* ─── Botão Carregar Mais Produtos ─── */
+.load-more-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 32px auto 16px;
+  text-align: center;
+}
+
+.btn-load-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #ffffff;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(21, 128, 61, 0.12);
+  transition: all .2s ease;
+}
+
+.btn-load-more:hover {
+  background: var(--primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(21, 128, 61, 0.25);
+}
+
+.btn-load-more:active {
+  transform: translateY(0);
+}
+
+.load-more-progress {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
 /* ─── Banner CTA EmolTech no Catálogo ─── */
 .dev-banner-cta {
   margin-top: 36px;

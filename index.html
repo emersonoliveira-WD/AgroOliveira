@@ -125,6 +125,17 @@
         <!-- Cards renderizados dinamicamente via app.js -->
       </section>
 
+      <!-- Botão Carregar Mais Produtos -->
+      <div class="load-more-container" id="load-more-container" style="display: none;">
+        <button id="btn-load-more" class="btn-load-more" onclick="window.carregarMaisProdutos()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+          <span id="load-more-btn-text">Carregar Mais Produtos</span>
+        </button>
+        <span class="load-more-progress" id="load-more-progress">Exibindo 15 de 45 anúncios</span>
+      </div>
+
       <!-- Banner de Chamada para Dedetização (Oliveira Dedetização) -->
       <section class="dev-banner-cta dedetizacao-banner-cta" onclick="window.trocarAba('dedetizacao')">
         <div class="dev-cta-icon">🛡️</div>

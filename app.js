@@ -5,12 +5,17 @@
   let allProducts = [];
   let currentCategory = 'todas';
   let searchTerm = '';
+  const PAGE_SIZE = 15;
+  let visibleProductsCount = PAGE_SIZE;
 
   // Elementos DOM
   const cardsGrid = document.getElementById('cards-grid');
   const categoryPills = document.getElementById('category-pills');
   const searchInput = document.getElementById('search-input');
   const totalCountEl = document.getElementById('total-count');
+  const loadMoreContainer = document.getElementById('load-more-container');
+  const loadMoreProgress = document.getElementById('load-more-progress');
+  const loadMoreBtnText = document.getElementById('load-more-btn-text');
 
   // Modal elementos
   const modalBackdrop = document.getElementById('details-modal');
@@ -196,6 +201,7 @@
       btn.textContent = cat === 'todas' ? 'Todas as Categorias' : cat;
       btn.onclick = () => {
         currentCategory = cat;
+        visibleProductsCount = PAGE_SIZE;
         renderCategories();
         renderCards();
       };
@@ -274,10 +280,14 @@
           <p>Tente buscar por outro termo ou selecione outra categoria.</p>
         </div>
       `;
+      if (loadMoreContainer) loadMoreContainer.style.display = 'none';
       return;
     }
 
-    cardsGrid.innerHTML = filtered.map(prod => {
+    // Fatiar para exibir apenas a quantidade da página atual (ex: 15 itens)
+    const prodsVisiveis = filtered.slice(0, visibleProductsCount);
+
+    cardsGrid.innerHTML = prodsVisiveis.map(prod => {
       const temDesconto = prod.preco_de && prod.preco_de > prod.preco_por;
       const percentual = temDesconto
         ? Math.round(((prod.preco_de - prod.preco_por) / prod.preco_de) * 100)
@@ -344,7 +354,43 @@
         </article>
       `;
     }).join('');
+
+    // Atualizar controle do botão "Carregar Mais Produtos"
+    if (loadMoreContainer) {
+      const btn = document.getElementById('btn-load-more');
+      if (filtered.length > visibleProductsCount) {
+        loadMoreContainer.style.display = 'flex';
+        if (btn) btn.style.display = 'inline-flex';
+        const restantes = filtered.length - visibleProductsCount;
+        const proxLote = Math.min(PAGE_SIZE, restantes);
+        if (loadMoreBtnText) {
+          loadMoreBtnText.textContent = `Carregar Mais Produtos (+${proxLote})`;
+        }
+        if (loadMoreProgress) {
+          loadMoreProgress.textContent = `Exibindo ${prodsVisiveis.length} de ${filtered.length} anúncio(s)`;
+        }
+      } else {
+        // Todos os itens já estão visíveis
+        if (filtered.length > PAGE_SIZE) {
+          loadMoreContainer.style.display = 'flex';
+          if (btn) btn.style.display = 'none';
+          if (loadMoreProgress) {
+            loadMoreProgress.textContent = `Todos os ${filtered.length} anúncios estão sendo exibidos ✓`;
+          }
+        } else {
+          loadMoreContainer.style.display = 'none';
+        }
+      }
+    }
   }
+
+  // Função global para carregar próximo lote de produtos
+  window.carregarMaisProdutos = function () {
+    visibleProductsCount += PAGE_SIZE;
+    const btn = document.getElementById('btn-load-more');
+    if (btn) btn.style.display = 'inline-flex';
+    renderCards();
+  };
 
   // Atualizar exibição de foto da modal
   function updateModalPhoto() {
@@ -473,6 +519,7 @@
   // Busca em tempo real
   searchInput.oninput = function (e) {
     searchTerm = e.target.value.trim();
+    visibleProductsCount = PAGE_SIZE;
     renderCards();
   };
 
