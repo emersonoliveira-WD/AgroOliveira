@@ -1,54 +1,9 @@
 {
   "loja": {
-    "nome": "Agropecuária Oliveira",
-    "telefone": "(42) 99952-2019",
-    "endereco": "Rua Teresa de Jesus, 196, CEP: 84450-000, Ipiranga - PR",
-    "horario": "Segunda a Sexta: 08:00 - 18:00 | Sábado: 08:00 - 12:00"
+    "NomeLoja": "Agropecuária Oliveira",
+    "Telefone": "(42) 99952-2019",
+    "Endereco": "Rua Teresa de Jesus, 196, CEP: 84450-000, Ipiranga-PR"
   },
-  "itens": [
-    {
-      "id": 1,
-      "titulo": "Chácara Rural 5 Alqueires com Pasto e Nascente",
-      "categoria": "Imóveis & Terrenos",
-      "preco_de": 380000.00,
-      "preco_por": 349000.00,
-      "estoque_qtd": "Documentação 100% Regularizada",
-      "imagem_url": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80",
-      "descricao": "Excelente propriedade rural em Ipiranga-PR. Toda cercada, pastagem formada, água de mina por gravidade, mangueira para gado e energia elétrica instalada. Pronta para criação ou lazer. Aceitamos propostas!",
-      "destaque": 1
-    },
-    {
-      "id": 2,
-      "titulo": "Camionete Fiat Strada Freedom 1.3 Cabine Plus 2023",
-      "categoria": "Veículos & Utilitários",
-      "preco_de": 92900.00,
-      "preco_por": 86900.00,
-      "estoque_qtd": "Único Dono • 32.000 KM",
-      "imagem_url": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80",
-      "descricao": "Utilitário ideal para campo e cidade. Direção elétrica, ar condicionado, capota marítima, protetor de caçamba e revisões em dia. Pronta entrega na loja.",
-      "destaque": 1
-    },
-    {
-      "id": 3,
-      "titulo": "Ração Supra Bovinos Engorda 40kg",
-      "categoria": "Nutrição Animal & Rações",
-      "preco_de": 98.00,
-      "preco_por": 84.90,
-      "estoque_qtd": "Lote Promocional em Estoque",
-      "imagem_url": "https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=800&q=80",
-      "descricao": "Ração de alta performance com minerais, ureia e alta digestibilidade para ganho de peso rápido em gado de corte. Preço especial para carga fechada ou retirada no balcão.",
-      "destaque": 0
-    },
-    {
-      "id": 4,
-      "titulo": "Pulverizador Costal Agrícola Manual 20L",
-      "categoria": "Ferramentas & Campo",
-      "preco_de": 260.00,
-      "preco_por": 219.00,
-      "estoque_qtd": "Pronta Entrega",
-      "imagem_url": "https://images.unsplash.com/photo-1592417817098-8f3d6910985c?auto=format&fit=crop&w=800&q=80",
-      "descricao": "Tanque ergonômico reforçado de 20 litros, lança em aço inox com bico regulável, alavanca reversível (destro e canhoto) e peças de reposição disponíveis na loja.",
-      "destaque": 0
-    }
-  ]
+  "data_exportacao": "2026-10-13T03:00:08.496Z",
+  "itens": []
 }
