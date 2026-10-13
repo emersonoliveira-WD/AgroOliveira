@@ -63,13 +63,14 @@
             <span class="tab-badge-promo">Dev</span>
           </button>
 
-          <a href="#como-chegar" class="nav-tab-btn nav-tab-link">
+          <button id="nav-btn-dedetizacao" class="nav-tab-btn" onclick="window.trocarAba('dedetizacao')">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-              <circle cx="12" cy="10" r="3"></circle>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+              <circle cx="12" cy="12" r="4"></circle>
             </svg>
-            <span>Onde Estamos</span>
-          </a>
+            <span>Dedetização</span>
+            <span class="tab-badge-promo tab-badge--laranja">Serviços</span>
+          </button>
         </nav>
       </div>
   </header>
@@ -122,6 +123,16 @@
 
       <section class="cards-grid" id="cards-grid">
         <!-- Cards renderizados dinamicamente via app.js -->
+      </section>
+
+      <!-- Banner de Chamada para Dedetização (Oliveira Dedetização) -->
+      <section class="dev-banner-cta dedetizacao-banner-cta" onclick="window.trocarAba('dedetizacao')">
+        <div class="dev-cta-icon">🛡️</div>
+        <div class="dev-cta-text">
+          <strong>Precisando de dedetização e controle de pragas?</strong>
+          <p>Livre sua casa, comércio ou chácara de baratas, cupins, aranhas e roedores com a Oliveira Dedetização. Clique aqui!</p>
+        </div>
+        <button class="btn-dev-cta btn-dev-cta--laranja">Saiba Mais</button>
       </section>
 
       <!-- Banner de Chamada para Desenvolvimento de Sistemas (EmolTech) -->
@@ -227,6 +238,89 @@
           </div>
 
           <div style="text-align: center; margin-top: 20px;">
+            <button class="btn-voltar-catalogo" onclick="window.trocarAba('catalogo')">
+              ← Voltar para o Catálogo de Produtos
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════════════════ -->
+  <!-- ABA 3: OLIVEIRA DEDETIZAÇÃO & CONTROLE DE PRAGAS                          -->
+  <!-- ══════════════════════════════════════════════════════════════════════════ -->
+  <div id="aba-dedetizacao" class="view-tab">
+    <section class="dedetizacao-hero">
+      <div class="dedetizacao-hero-content">
+        <div class="dedetizacao-badge">🛡️ Oliveira Dedetização • Ipiranga & Região</div>
+        <h2>Controle de Pragas, Desinsetização & Proteção Completa</h2>
+        <p>
+          Livre sua casa, comércio, barracão ou propriedade rural de baratas, cupins, aranhas, escorpiões, roedores e formigas com produtos autorizados e máxima segurança.
+        </p>
+        <div style="margin-top: 22px; display: flex; justify-content: center;">
+          <a href="https://oliveira-ashy.vercel.app/" target="_blank" rel="noopener" class="btn-dedetizacao-cta">
+            Acessar Site Oficial da Dedetizadora ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <main class="main-content">
+      <div class="dev-services-grid">
+        <!-- Card 1 -->
+        <div class="dev-service-card">
+          <div class="service-icon">🦟</div>
+          <h3>Desinsetização Geral</h3> 
+          <p>
+            Eliminação e barreira química contra baratas, formigas, moscas, pernilongos e mosquitos. Aplicação sem cheiro e com efeito residual prolongado.
+          </p>
+          <ul class="service-checklist">
+            <li>✓ Seguro para pets e famílias</li>
+            <li>✓ Certificado de aplicação</li>
+            <li>✓ Atendimento rápido residencial e comercial</li>
+          </ul>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="dev-service-card highlight-card highlight-card--dedetizacao">
+          <div class="service-icon">🦂</div>
+          <h3>Aranhas, Escorpiões & Cupins</h3>
+          <p>
+            Proteção reforçada para quintais, forros, estoques e áreas rurais. Localização de focos e combate específico para espécies venenosas e brocas de madeira.
+          </p>
+          <ul class="service-checklist">
+            <li>✓ Inspeção minuciosa dos pontos de risco</li>
+            <li>✓ Produtos certificados pela Anvisa</li>
+            <li>✓ Descupinização preventiva e curativa</li>
+          </ul>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="dev-service-card">
+          <div class="service-icon">🐀</div>
+          <h3>Desratização & Controle de Roedores</h3>
+          <p>
+            Controle seguro e higiênico de ratos e camundongos com portas-iscas lacrados, ideais para fazendas, depósitos de grãos, rações e residências.
+          </p>
+          <ul class="service-checklist">
+            <li>✓ Iscas parafinadas de alta atratividade</li>
+            <li>✓ Bloqueio de tocas e passagens</li>
+            <li>✓ Proteção do estoque e saúde da sua família</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card CTA Dedetização -->
+      <section class="dedetizacao-portal-card">
+        <div class="portal-card-body">
+          <div class="portal-badge-promo">PROMOÇÃO ESPECIAL</div>
+          <h3>Conheça nosso site completo e confira fotos de serviços realizados</h3>
+          <p>Veja avaliações, métodos de trabalho, certificados e tire dúvidas diretamente com nossa equipe especializada.</p>
+          <div class="portal-action-btns">
+            <a href="https://oliveira-ashy.vercel.app/" target="_blank" rel="noopener" class="btn-portal-site">
+              🌐 Abrir Site Oficial: oliveira-ashy.vercel.app
+            </a>
             <button class="btn-voltar-catalogo" onclick="window.trocarAba('catalogo')">
               ← Voltar para o Catálogo de Produtos
             </button>

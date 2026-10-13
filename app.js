@@ -59,26 +59,37 @@
     return Number(value).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   }
 
-  // Troca de Abas (Catálogo vs Serviços Dev)
+  // Troca de Abas (Catálogo vs Serviços Dev vs Dedetização)
   window.trocarAba = function (aba) {
     const abaCatalogo = document.getElementById('aba-catalogo');
     const abaDev = document.getElementById('aba-servicos-dev');
+    const abaDedetizacao = document.getElementById('aba-dedetizacao');
+
     const btnCatalogo = document.getElementById('nav-btn-catalogo');
     const btnDev = document.getElementById('nav-btn-dev');
+    const btnDedetizacao = document.getElementById('nav-btn-dedetizacao');
+
+    // Desativar tudo
+    if (abaCatalogo) abaCatalogo.classList.remove('active');
+    if (abaDev) abaDev.classList.remove('active');
+    if (abaDedetizacao) abaDedetizacao.classList.remove('active');
+
+    if (btnCatalogo) btnCatalogo.classList.remove('active');
+    if (btnDev) btnDev.classList.remove('active');
+    if (btnDedetizacao) btnDedetizacao.classList.remove('active');
 
     if (aba === 'servicos-dev') {
-      if (abaCatalogo) abaCatalogo.classList.remove('active');
       if (abaDev) abaDev.classList.add('active');
-      if (btnCatalogo) btnCatalogo.classList.remove('active');
       if (btnDev) btnDev.classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (aba === 'dedetizacao') {
+      if (abaDedetizacao) abaDedetizacao.classList.add('active');
+      if (btnDedetizacao) btnDedetizacao.classList.add('active');
     } else {
-      if (abaDev) abaDev.classList.remove('active');
       if (abaCatalogo) abaCatalogo.classList.add('active');
-      if (btnDev) btnDev.classList.remove('active');
       if (btnCatalogo) btnCatalogo.classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   // Obter link do WhatsApp para o produto
