@@ -20,9 +20,9 @@
 </head>
 <body>
 
-  <!-- ─── Topbar ─── -->
-  <header class="topbar">
-    <div class="topbar-container">
+  <!-- ─── Faixa Superior com Logo e Contato (rola com a página) ─── -->
+  <div class="topbar-brand-row">
+    <div class="topbar-container brand-row-container">
       <a href="#" class="brand" onclick="window.trocarAba('catalogo')">
         <img src="./logo.svg" alt="Logo Agropecuária Oliveira" class="brand-logo" />
         <div class="brand-text">
@@ -30,35 +30,6 @@
           <span>Ipiranga - PR • Tradição & Qualidade</span>
         </div>
       </a>
-
-      <!-- Navegação Principal entre Abas -->
-      <nav class="nav-tabs">
-        <button id="nav-btn-catalogo" class="nav-tab-btn active" onclick="window.trocarAba('catalogo')">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-            <line x1="8" y1="21" x2="16" y2="21"></line>
-            <line x1="12" y1="17" x2="12" y2="21"></line>
-          </svg>
-          <span>Catálogo & Ofertas</span>
-        </button>
-
-        <button id="nav-btn-dev" class="nav-tab-btn" onclick="window.trocarAba('servicos-dev')">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="16 18 22 12 16 6"></polyline>
-            <polyline points="8 6 2 12 8 18"></polyline>
-          </svg>
-          <span>Sistemas & Sites</span>
-          <span class="tab-badge-promo">Software</span>
-        </button>
-
-        <a href="#como-chegar" class="nav-tab-btn nav-tab-link">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-            <circle cx="12" cy="10" r="3"></circle>
-          </svg>
-          <span>Onde Estamos</span>
-        </a>
-      </nav>
 
       <!-- Botão de Contato WhatsApp Loja -->
       <a href="#" id="header-whatsapp-btn" target="_blank" rel="noopener" class="header-contact-btn">
@@ -68,6 +39,39 @@
         <span>Falar com a Loja</span>
       </a>
     </div>
+  </div>
+
+  <!-- ─── Barra de Navegação Exclusivamente Fixa no Topo (Sticky) ─── -->
+  <header class="topbar-nav-sticky">
+      <div class="topbar-container nav-row-container">
+        <nav class="nav-tabs">
+          <button id="nav-btn-catalogo" class="nav-tab-btn active" onclick="window.trocarAba('catalogo')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+            <span>Catálogo</span>
+          </button>
+
+          <button id="nav-btn-dev" class="nav-tab-btn" onclick="window.trocarAba('servicos-dev')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            <span>Sistemas & Sites</span>
+            <span class="tab-badge-promo">Dev</span>
+          </button>
+
+          <a href="#como-chegar" class="nav-tab-btn nav-tab-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>Onde Estamos</span>
+          </a>
+        </nav>
+      </div>
   </header>
 
   <!-- ══════════════════════════════════════════════════════════════════════════ -->

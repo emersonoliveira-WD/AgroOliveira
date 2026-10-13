@@ -32,26 +32,47 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ─── Topbar & Header ─── */
-.topbar {
-  background: var(--surface);
-  border-bottom: 1px solid var(--line);
+/* Faixa Superior de Marca e Contato - FIXA NO TOPO (Acompanha o scroll) */
+.topbar-brand-row {
   position: sticky;
   top: 0;
-  z-index: 40;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(8px);
-  background-color: rgba(255, 255, 255, 0.96);
-  box-shadow: 0 2px 10px rgba(0,0,0,.03);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
+  width: 100%;
+}
+
+.brand-row-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 10px 20px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* Faixa de Navegação/Atalhos - NÃO É FIXA (Fica quietinha no lugar dela e rola com a página) */
+.topbar-nav-sticky {
+  position: static;
+  background: #ffffff;
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-row-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+  max-width: 1240px;
+  margin: 0 auto;
 }
 
 .topbar-container {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
 }
 
 .brand {
@@ -1138,10 +1159,87 @@ body {
 
 /* ─── Responsivo ─── */
 @media (max-width: 768px) {
-  .topbar-container { flex-direction: column; align-items: stretch; gap: 10px; padding: 12px 16px; }
-  .nav-tabs { justify-content: center; }
-  .header-contact-btn { justify-content: center; }
-  .hero h2 { font-size: 22px; }
+  /* No mobile: a marca e o contato ficam em uma linha limpa que rola para cima */
+  .brand-row-container {
+    padding: 8px 12px;
+    gap: 8px;
+  }
+  
+  .brand {
+    gap: 8px;
+  }
+
+  .brand-logo {
+    width: 38px;
+    height: 38px;
+  }
+
+  .brand-text h1 {
+    font-size: 14px;
+  }
+
+  .brand-text span {
+    font-size: 10px;
+    display: block;
+  }
+
+  .header-contact-btn {
+    padding: 6px 12px;
+    font-size: 11px;
+    gap: 4px;
+    white-space: nowrap;
+  }
+
+  .header-contact-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* Barra da marca fica fixa no topo acompanhando o scroll */
+  .topbar-brand-row {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    box-shadow: 0 2px 10px rgba(0,0,0,.08);
+  }
+
+  /* Barra de abas fica quietinha no lugar dela e sobe junto ao scrollar */
+  .topbar-nav-sticky {
+    position: static;
+    box-shadow: none;
+  }
+
+  .nav-row-container {
+    padding: 6px 8px;
+  }
+
+  .nav-tabs {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    gap: 4px;
+  }
+
+  .nav-tab-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 7px 6px;
+    font-size: 11px;
+    gap: 4px;
+    border-radius: 6px;
+  }
+
+  .nav-tab-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .tab-badge-promo {
+    font-size: 8px;
+    padding: 1px 4px;
+  }
+
+  .hero h2 { font-size: 20px; }
   .cards-grid { grid-template-columns: 1fr; }
   .card-actions { grid-template-columns: 1fr; }
   .dev-banner-cta { flex-direction: column; text-align: center; }
