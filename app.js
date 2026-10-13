@@ -16,11 +16,42 @@
   const modalBackdrop = document.getElementById('details-modal');
   const modalCloseBtn = document.getElementById('modal-close-btn');
   const modalImg = document.getElementById('modal-img');
+  const modalPrevBtn = document.getElementById('modal-prev-btn');
+  const modalNextBtn = document.getElementById('modal-next-btn');
+  const modalImgCounter = document.getElementById('modal-img-counter');
+  const modalThumbnails = document.getElementById('modal-thumbnails');
   const modalCategory = document.getElementById('modal-category');
   const modalTitle = document.getElementById('modal-title');
   const modalPrices = document.getElementById('modal-prices');
   const modalDesc = document.getElementById('modal-desc');
   const modalCtaBtn = document.getElementById('modal-cta-btn');
+
+  // Estado do carrossel na modal e nos cards
+  let currentModalProduct = null;
+  let currentModalPhotoIdx = 0;
+  const cardPhotoIndexes = {};
+
+  // Extrair array de imagens (suporta JSON string, array ou string única)
+  function parseProductImages(imagemUrl) {
+    if (!imagemUrl) {
+      return ['https://images.unsplash.com/photo-1560343090-f0409e92791a?auto=format&fit=crop&w=600&q=80'];
+    }
+    if (Array.isArray(imagemUrl)) {
+      return imagemUrl.filter(Boolean);
+    }
+    const trimmed = String(imagemUrl).trim();
+    if (trimmed.startsWith('[') && trimmed.endsWith(']')) {
+      try {
+        const parsed = JSON.parse(trimmed);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          return parsed.filter(Boolean);
+        }
+      } catch {
+        // fallback
+      }
+    }
+    return [trimmed];
+  }
 
   // Formatar Moeda (BRL)
   function formatMoney(value) {
@@ -116,7 +147,7 @@
         });
         if (res.ok) {
           const data = await res.json();
-          if (Array.isArray(data) && data.length > 0) {
+          if (Array.isArray(data)) {
             allProducts = data;
             renderAll();
             return;
@@ -161,6 +192,56 @@
     });
   }
 
+  // Resolver URL da imagem para suportar Base64, URLs externas e uploads locais
+  function resolveImageUrl(url) {
+    if (!url) {
+      return 'https://images.unsplash.com/photo-1560343090-f0409e92791a?auto=format&fit=crop&w=600&q=80';
+    }
+    if (url.startsWith('data:') || url.startsWith('http://') || url.startsWith('https://')) {
+      return url;
+    }
+    if (url.startsWith('/') && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
+      return `http://localhost:8000${url}`;
+    }
+    return url;
+  }
+
+  // Passar foto no card
+  window.navegarFotoCard = function (e, prodId, delta) {
+    e.stopPropagation();
+    const prod = allProducts.find(p => p.id === prodId);
+    if (!prod) return;
+
+    const imgs = parseProductImages(prod.imagem_url);
+    if (imgs.length <= 1) return;
+
+    const currentIdx = cardPhotoIndexes[prodId] || 0;
+    let nextIdx = currentIdx + delta;
+    if (nextIdx < 0) nextIdx = imgs.length - 1;
+    if (nextIdx >= imgs.length) nextIdx = 0;
+
+    cardPhotoIndexes[prodId] = nextIdx;
+
+    const imgEl = document.getElementById(`card-img-${prodId}`);
+    if (imgEl) {
+      imgEl.src = resolveImageUrl(imgs[nextIdx]);
+    }
+
+    const counterEl = document.getElementById(`card-counter-${prodId}`);
+    if (counterEl) {
+      counterEl.textContent = `${nextIdx + 1}/${imgs.length}`;
+    }
+
+    const dotsWrap = document.getElementById(`card-dots-${prodId}`);
+    if (dotsWrap) {
+      const dots = dotsWrap.querySelectorAll('.web-carousel-dot');
+      dots.forEach((d, idx) => {
+        if (idx === nextIdx) d.classList.add('active');
+        else d.classList.remove('active');
+      });
+    }
+  };
+
   // Renderizar cards de produtos
   function renderCards() {
     const filtered = allProducts.filter(p => {
@@ -191,14 +272,37 @@
         ? Math.round(((prod.preco_de - prod.preco_por) / prod.preco_de) * 100)
         : 0;
 
-      const imgUrl = prod.imagem_url || 'https://images.unsplash.com/photo-1560343090-f0409e92791a?auto=format&fit=crop&w=600&q=80';
+      const imgs = parseProductImages(prod.imagem_url);
+      const currentIdx = cardPhotoIndexes[prod.id] || 0;
+      const activeIdx = currentIdx < imgs.length ? currentIdx : 0;
+      const imgUrl = resolveImageUrl(imgs[activeIdx]);
+      const temVariasFotos = imgs.length > 1;
 
       return `
         <article class="product-card">
           <div class="card-image-wrap" onclick="window.abrirDetalhes(${prod.id})">
-            <img src="${imgUrl}" alt="${prod.titulo}" class="card-image" loading="lazy" />
+            <img id="card-img-${prod.id}" src="${imgUrl}" alt="${prod.titulo}" class="card-image" loading="lazy" />
             ${prod.destaque ? '<span class="badge-featured">⭐ Destaque</span>' : ''}
             ${temDesconto ? `<span class="badge-discount">-${percentual}% OFF</span>` : ''}
+
+            ${temVariasFotos ? `
+              <button
+                type="button"
+                class="web-carousel-btn web-carousel-btn--prev"
+                onclick="window.navegarFotoCard(event, ${prod.id}, -1)"
+                title="Foto anterior"
+              >‹</button>
+              <button
+                type="button"
+                class="web-carousel-btn web-carousel-btn--next"
+                onclick="window.navegarFotoCard(event, ${prod.id}, 1)"
+                title="Próxima foto"
+              >›</button>
+              <span id="card-counter-${prod.id}" class="web-carousel-counter">${activeIdx + 1}/${imgs.length}</span>
+              <div id="card-dots-${prod.id}" class="web-carousel-dots">
+                ${imgs.map((_, i) => `<span class="web-carousel-dot ${i === activeIdx ? 'active' : ''}"></span>`).join('')}
+              </div>
+            ` : ''}
           </div>
 
           <div class="card-body">
@@ -231,12 +335,68 @@
     }).join('');
   }
 
+  // Atualizar exibição de foto da modal
+  function updateModalPhoto() {
+    if (!currentModalProduct) return;
+    const imgs = parseProductImages(currentModalProduct.imagem_url);
+    if (imgs.length === 0) return;
+
+    if (currentModalPhotoIdx < 0) currentModalPhotoIdx = imgs.length - 1;
+    if (currentModalPhotoIdx >= imgs.length) currentModalPhotoIdx = 0;
+
+    modalImg.src = resolveImageUrl(imgs[currentModalPhotoIdx]);
+
+    if (imgs.length > 1) {
+      if (modalPrevBtn) modalPrevBtn.style.display = 'flex';
+      if (modalNextBtn) modalNextBtn.style.display = 'flex';
+      if (modalImgCounter) {
+        modalImgCounter.style.display = 'block';
+        modalImgCounter.textContent = `${currentModalPhotoIdx + 1} / ${imgs.length}`;
+      }
+      if (modalThumbnails) {
+        modalThumbnails.style.display = 'flex';
+        modalThumbnails.querySelectorAll('.modal-thumb-btn').forEach((btn, idx) => {
+          if (idx === currentModalPhotoIdx) btn.classList.add('active');
+          else btn.classList.remove('active');
+        });
+      }
+    } else {
+      if (modalPrevBtn) modalPrevBtn.style.display = 'none';
+      if (modalNextBtn) modalNextBtn.style.display = 'none';
+      if (modalImgCounter) modalImgCounter.style.display = 'none';
+      if (modalThumbnails) modalThumbnails.style.display = 'none';
+    }
+  }
+
   // Abrir Modal de Detalhes
   window.abrirDetalhes = function (id) {
     const prod = allProducts.find(p => p.id === id);
     if (!prod) return;
 
-    modalImg.src = prod.imagem_url || 'https://images.unsplash.com/photo-1560343090-f0409e92791a?auto=format&fit=crop&w=800&q=80';
+    currentModalProduct = prod;
+    currentModalPhotoIdx = cardPhotoIndexes[prod.id] || 0;
+
+    const imgs = parseProductImages(prod.imagem_url);
+
+    // Montar miniaturas se houver mais de uma
+    if (modalThumbnails) {
+      if (imgs.length > 1) {
+        modalThumbnails.innerHTML = imgs.map((img, idx) => `
+          <button
+            type="button"
+            class="modal-thumb-btn ${idx === currentModalPhotoIdx ? 'active' : ''}"
+            onclick="window.selecionarFotoModal(${idx})"
+          >
+            <img src="${resolveImageUrl(img)}" alt="Foto ${idx + 1}" />
+          </button>
+        `).join('');
+      } else {
+        modalThumbnails.innerHTML = '';
+      }
+    }
+
+    updateModalPhoto();
+
     modalCategory.textContent = prod.categoria || 'Geral';
     modalTitle.textContent = prod.titulo;
 
@@ -254,9 +414,32 @@
     modalBackdrop.classList.add('open');
   };
 
+  // Navegar fotos na modal
+  window.selecionarFotoModal = function (idx) {
+    currentModalPhotoIdx = idx;
+    updateModalPhoto();
+  };
+
+  if (modalPrevBtn) {
+    modalPrevBtn.onclick = function (e) {
+      e.stopPropagation();
+      currentModalPhotoIdx--;
+      updateModalPhoto();
+    };
+  }
+
+  if (modalNextBtn) {
+    modalNextBtn.onclick = function (e) {
+      e.stopPropagation();
+      currentModalPhotoIdx++;
+      updateModalPhoto();
+    };
+  }
+
   // Fechar Modal
   function fecharModal() {
     modalBackdrop.classList.remove('open');
+    currentModalProduct = null;
   }
 
   modalCloseBtn.onclick = fecharModal;
@@ -265,6 +448,15 @@
   };
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') fecharModal();
+    if (modalBackdrop.classList.contains('open') && currentModalProduct) {
+      if (e.key === 'ArrowLeft') {
+        currentModalPhotoIdx--;
+        updateModalPhoto();
+      } else if (e.key === 'ArrowRight') {
+        currentModalPhotoIdx++;
+        updateModalPhoto();
+      }
+    }
   });
 
   // Busca em tempo real

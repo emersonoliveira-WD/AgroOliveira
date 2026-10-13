@@ -235,10 +235,14 @@
   <!-- ─── Modal "Ver Detalhes" ─── -->
   <div class="modal-backdrop" id="details-modal">
     <div class="modal-dialog">
-      <div class="modal-img-wrap">
+      <div class="modal-img-wrap" id="modal-img-wrap">
         <img id="modal-img" src="" alt="Foto do Produto" class="modal-img" />
         <button class="modal-close-btn" id="modal-close-btn" aria-label="Fechar">✕</button>
+        <button class="web-carousel-btn web-carousel-btn--prev" id="modal-prev-btn" aria-label="Foto anterior" style="display: none;">‹</button>
+        <button class="web-carousel-btn web-carousel-btn--next" id="modal-next-btn" aria-label="Próxima foto" style="display: none;">›</button>
+        <div class="web-carousel-counter" id="modal-img-counter" style="display: none;">1 / 1</div>
       </div>
+      <div class="modal-thumbnails-strip" id="modal-thumbnails" style="display: none;"></div>
 
       <div class="modal-body">
         <span class="modal-category" id="modal-category">Categoria</span>
