@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <!-- Sombra suave para o emblema -->
+    <filter id="drop-shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-opacity="0.25" flood-color="#000000" />
+    </filter>
+    
+    <!-- Caminho superior (sentido horário): AGROPECUÁRIA -->
+    <path id="path-top" d="M 65 240 A 188 188 0 0 1 435 240" fill="none" />
+    
+    <!-- Caminho inferior (sentido anti-horário, da esquerda para a direita na parte inferior): OLIVEIRA -->
+    <path id="path-bottom" d="M 62 265 A 190 190 0 0 0 438 265" fill="none" />
+  </defs>
+
+  <!-- Círculo Externo Vermelho -->
+  <circle cx="250" cy="250" r="235" fill="#c01823" stroke="#8d1018" stroke-width="6" filter="url(#drop-shadow)" />
+  <circle cx="250" cy="250" r="226" fill="none" stroke="#fca5a5" stroke-width="2" stroke-dasharray="6,4" />
+
+  <!-- Texto Superior: AGROPECUÁRIA (Lê em arco superior) -->
+  <text fill="#ffffff" font-family="'Segoe UI', Roboto, 'Arial Black', sans-serif" font-size="33" font-weight="900" letter-spacing="6">
+    <textPath href="#path-top" startOffset="50%" text-anchor="middle">
+      AGROPECUÁRIA
+    </textPath>
+  </text>
+
+  <!-- Estrelas laterais decorativas entre os textos -->
+  <g fill="#ffffff">
+    <!-- Esquerda -->
+    <polygon points="50,250 54,240 65,240 56,247 60,257 50,251 40,257 44,247 35,240 46,240" transform="translate(18, 0) scale(0.68)" />
+    <!-- Direita -->
+    <polygon points="50,250 54,240 65,240 56,247 60,257 50,251 40,257 44,247 35,240 46,240" transform="translate(424, 0) scale(0.68)" />
+  </g>
+
+  <!-- Texto Inferior: OLIVEIRA (Sentido anti-horário, da esquerda para a direita na base) -->
+  <text fill="#ffffff" font-family="'Segoe UI', Roboto, 'Arial Black', sans-serif" font-size="38" font-weight="900" letter-spacing="7">
+    <textPath href="#path-bottom" startOffset="50%" text-anchor="middle">
+      OLIVEIRA
+    </textPath>
+  </text>
+
+  <!-- Círculo Interno Branco -->
+  <circle cx="250" cy="250" r="142" fill="#ffffff" stroke="#c01823" stroke-width="5" />
+  <circle cx="250" cy="250" r="136" fill="none" stroke="#e2e8f0" stroke-width="2" />
+
+  <!-- Ilustração Rural Preto e Branco (Construção Rural / Celeiro + Vaca) -->
+  <g id="rural-art" transform="translate(130, 135)">
+    <!-- Silhueta da Construção Rural / Celeiro (Fundo) -->
+    <path d="M 120 40 L 155 18 L 190 40 L 190 100 L 120 100 Z" fill="#2d3748" />
+    <!-- Silo cilíndrico à direita -->
+    <path d="M 195 45 C 195 35, 220 35, 220 45 L 220 100 L 195 100 Z" fill="#4a5568" />
+    <path d="M 195 45 C 195 38, 220 38, 220 45" fill="none" stroke="#2d3748" stroke-width="2" />
+    <!-- Telhado e porta do celeiro -->
+    <polygon points="115,42 155,14 195,42" fill="#1a202c" />
+    <rect x="145" y="70" width="20" height="30" fill="#ffffff" />
+    <!-- Detalhes do celeiro (janela e travessa em X) -->
+    <rect x="150" y="45" width="10" height="12" fill="#ffffff" />
+    <line x1="145" y1="70" x2="165" y2="100" stroke="#2d3748" stroke-width="2" />
+    <line x1="165" y1="70" x2="145" y2="100" stroke="#2d3748" stroke-width="2" />
+
+    <!-- Cerca e vegetação sutil ao fundo -->
+    <path d="M 80 85 L 120 85 M 90 78 L 90 98 M 105 78 L 105 98" stroke="#718096" stroke-width="2" />
+    <path d="M 70 85 C 65 70, 85 60, 90 75 C 95 65, 110 70, 110 85 Z" fill="#a0aec0" />
+
+    <!-- Linha do chão / pasto -->
+    <path d="M 0 145 Q 60 135 120 142 T 240 145 L 240 160 L 0 160 Z" fill="#1a202c" />
+
+    <!-- Silhueta da Vaca em Primeiro Plano -->
+    <path d="
+      M 45 105 
+      C 42 100, 38 98, 35 100
+      C 32 95, 28 95, 25 99
+      C 22 96, 18 97, 16 102
+      C 12 105, 8 112, 10 118
+      C 12 124, 18 126, 24 125
+      C 27 127, 30 132, 33 135
+      C 37 138, 44 135, 48 130
+      C 52 131, 58 132, 65 130
+      L 63 150 L 69 150 L 72 130
+      C 76 130, 84 131, 92 130
+      L 90 150 L 96 150 L 100 128
+      C 105 128, 112 127, 118 124
+      C 122 128, 126 148, 126 150 L 132 150 L 131 120
+      C 134 116, 137 110, 136 102
+      C 134 94, 128 88, 120 87
+      C 112 86, 102 90, 94 91
+      C 85 92, 75 90, 68 92
+      C 60 94, 52 98, 48 103
+      Z" 
+      fill="#111827" 
+    />
+
+    <!-- Manchas brancas características da vaca -->
+    <path d="M 75 96 C 85 96, 92 105, 88 112 C 82 116, 74 112, 70 106 C 68 100, 72 96, 75 96 Z" fill="#ffffff" />
+    <path d="M 106 95 C 114 96, 120 102, 116 110 C 110 114, 104 110, 102 102 Z" fill="#ffffff" />
+    <path d="M 28 108 C 30 105, 34 105, 35 108 C 34 112, 30 112, 28 108 Z" fill="#ffffff" />
+
+    <!-- Chifre e Orelha -->
+    <path d="M 32 94 Q 35 88 40 89 Q 36 93 34 96 Z" fill="#111827" />
+    <path d="M 22 95 Q 26 90 30 92 Q 26 96 24 97 Z" fill="#111827" />
+
+    <!-- Cauda -->
+    <path d="M 136 104 C 142 112, 143 125, 140 135 C 141 138, 143 140, 140 142" fill="none" stroke="#111827" stroke-width="2.5" />
+    <circle cx="140" cy="142" r="2.5" fill="#111827" />
+  </g>
+</svg>

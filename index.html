@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agropecuária Oliveira - Catálogo & Ofertas</title>
+  <meta name="description" content="Produtos agropecuários, rações, ferramentas, veículos, terrenos e ofertas da Agropecuária Oliveira em Ipiranga-PR." />
+
+  <!-- Favicon com o logo -->
+  <link rel="icon" type="image/svg+xml" href="./logo.svg" />
+
+  <!-- Open Graph / Redes Sociais -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Agropecuária Oliveira - Catálogo & Ofertas" />
+  <meta property="og:description" content="Confira nossos produtos, rações, ferramentas e ofertas com atendimento direto no WhatsApp!" />
+  <meta property="og:image" content="./logo.svg" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+  <!-- ─── Topbar ─── -->
+  <header class="topbar">
+    <div class="topbar-container">
+      <a href="#" class="brand" onclick="window.trocarAba('catalogo')">
+        <img src="./logo.svg" alt="Logo Agropecuária Oliveira" class="brand-logo" />
+        <div class="brand-text">
+          <h1 id="store-name">Agropecuária Oliveira</h1>
+          <span>Ipiranga - PR • Tradição & Qualidade</span>
+        </div>
+      </a>
+
+      <!-- Navegação Principal entre Abas -->
+      <nav class="nav-tabs">
+        <button id="nav-btn-catalogo" class="nav-tab-btn active" onclick="window.trocarAba('catalogo')">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+            <line x1="8" y1="21" x2="16" y2="21"></line>
+            <line x1="12" y1="17" x2="12" y2="21"></line>
+          </svg>
+          <span>Catálogo & Ofertas</span>
+        </button>
+
+        <button id="nav-btn-dev" class="nav-tab-btn" onclick="window.trocarAba('servicos-dev')">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+          <span>Sistemas & Sites</span>
+          <span class="tab-badge-promo">Software</span>
+        </button>
+
+        <a href="#como-chegar" class="nav-tab-btn nav-tab-link">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>Onde Estamos</span>
+        </a>
+      </nav>
+
+      <!-- Botão de Contato WhatsApp Loja -->
+      <a href="#" id="header-whatsapp-btn" target="_blank" rel="noopener" class="header-contact-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.12-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.02 2.6c.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29z"/>
+        </svg>
+        <span>Falar com a Loja</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════════════════════════════════════════ -->
+  <!-- ABA 1: CATÁLOGO ONLINE & OFERTAS                                          -->
+  <!-- ══════════════════════════════════════════════════════════════════════════ -->
+  <div id="aba-catalogo" class="view-tab active">
+    <!-- Banner Hero Agropecuária -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-logo-center">
+          <img src="./logo.svg" alt="Agropecuária Oliveira" class="hero-logo-img" />
+        </div>
+        <div class="hero-badge">Agropecuária Oliveira • Ipiranga - PR</div>
+        <h2>Ofertas, Nutrição Animal & Oportunidades</h2>
+        <p id="hero-subtitle">
+          Confira nossas novidades, rações, medicamentos veterinários, veículos, terrenos e promoções especiais da nossa loja física. Tire dúvidas direto pelo WhatsApp!
+        </p>
+      </div>
+    </section>
+
+    <!-- Barra de Busca e Filtros de Categoria -->
+    <section class="catalog-toolbar">
+      <div class="toolbar-card">
+        <div class="search-bar">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="O que você procura? Ex: ração, pulverizador, camionete, terreno..."
+            autocomplete="off"
+          />
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </div>
+
+        <nav class="category-pills" id="category-pills">
+          <!-- Renderizado dinamicamente via app.js -->
+        </nav>
+      </div>
+    </section>
+
+    <!-- Grid de Produtos -->
+    <main class="main-content">
+      <div class="catalog-header-info">
+        <span id="total-count">Carregando anúncios...</span>
+      </div>
+
+      <section class="cards-grid" id="cards-grid">
+        <!-- Cards renderizados dinamicamente via app.js -->
+      </section>
+
+      <!-- Banner de Chamada para Desenvolvimento de Sistemas (EmolTech) -->
+      <section class="dev-banner-cta" onclick="window.trocarAba('servicos-dev')">
+        <div class="dev-cta-icon">💻</div>
+        <div class="dev-cta-text">
+          <strong>Quer um site como este ou precisa de um sistema para a sua empresa?</strong>
+          <p>Criamos catálogos digitais, sistemas de gestão comercial e sites sob medida. Clique e conheça a EmolTech!</p>
+        </div>
+        <button class="btn-dev-cta">Saiba Mais</button>
+      </section>
+    </main>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════════════════ -->
+  <!-- ABA 2: SERVIÇOS DE DESENVOLVIMENTO DE SISTEMAS & SITES (EMOLTECH)         -->
+  <!-- ══════════════════════════════════════════════════════════════════════════ -->
+  <div id="aba-servicos-dev" class="view-tab">
+    <section class="dev-hero">
+      <div class="dev-hero-content">
+        <div class="dev-badge">EmolTech • Soluções em Tecnologia</div>
+        <h2>Quer um site ou sistema sob medida para o seu negócio?</h2>
+        <p>
+          Transformamos sua rotina comercial com tecnologia rápida, moderna e descomplicada. Desenvolvemos desde sites vitrine e catálogos online até sistemas completos de vendas, controle de estoque e emissão fiscal.
+        </p>
+      </div>
+    </section>
+
+    <main class="main-content dev-main-content">
+      <div class="dev-services-grid">
+        <!-- Card 1 -->
+        <div class="dev-service-card">
+          <div class="service-icon">🌐</div>
+          <h3>Catálogos Online & Vitrines Digitais</h3>
+          <p>
+            Divulgue seus produtos, fotos comprimidas em alta velocidade, preços promocionais e integre diretamente com o WhatsApp da sua equipe de vendas.
+          </p>
+          <ul class="service-checklist">
+            <li>✓ Acesso rápido no celular de qualquer cliente</li>
+            <li>✓ Fotos otimizadas que abrem instantaneamente</li>
+            <li>✓ Botão de contato direto com mensagem pronta</li>
+          </ul>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="dev-service-card highlight-card">
+          <div class="service-icon">🖥️</div>
+          <h3>Sistemas de Gestão Comercial (Desktop & Web)</h3>
+          <p>
+            Tenha controle absoluto do seu negócio: frente de caixa (PDV), controle de estoque, contas a pagar e receber, histórico detalhado de alterações e relatórios.
+          </p>
+          <ul class="service-checklist">
+            <li>✓ PDV ágil e intuitivo para balcão</li>
+            <li>✓ Controle de preços, custos e margens de lucro</li>
+            <li>✓ Histórico e auditoria de cada produto vendido</li>
+          </ul>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="dev-service-card">
+          <div class="service-icon">📱</div>
+          <h3>Sites Institucionais & Landing Pages</h3>
+          <p>
+            Apresente sua empresa com autoridade e profissionalismo. Sites responsivos, otimizados para o Google (SEO), com localização no mapa e formulários rápidos.
+          </p>
+          <ul class="service-checklist">
+            <li>✓ Design exclusivo com a sua identidade visual</li>
+            <li>✓ Hospedagem moderna com alta estabilidade</li>
+            <li>✓ Suporte direto e próximo de quem desenvolve</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card de Contato Direto com a EmolTech -->
+      <section class="dev-contact-section">
+        <div class="dev-contact-card">
+          <div class="dev-contact-header">
+            <h3>Vamos conversar sobre o seu projeto?</h3>
+            <p>Faça um orçamento sem compromisso e veja como podemos modernizar seu negócio!</p>
+          </div>
+
+          <div class="dev-contact-channels">
+            <a href="https://wa.me/5542999522019?text=Ol%C3%A1!%20Vi%20o%20cat%C3%A1logo%20da%20Agropecu%C3%A1ria%20Oliveira%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20um%20site%2Fsistema." target="_blank" rel="noopener" class="dev-channel-btn dev-channel--whatsapp">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.12-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.02 2.6c.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29z"/>
+              </svg>
+              <div>
+                <strong>WhatsApp / Telefone</strong>
+                <span>(42) 99952-2019</span>
+              </div>
+            </a>
+
+            <a href="mailto:contato.emoltech@gmail.com?subject=Or%C3%A7amento%20de%20Sistema%20%2F%20Site" class="dev-channel-btn dev-channel--email">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <div>
+                <strong>E-mail Direto</strong>
+                <span>contato.emoltech@gmail.com</span>
+              </div>
+            </a>
+          </div>
+
+          <div style="text-align: center; margin-top: 20px;">
+            <button class="btn-voltar-catalogo" onclick="window.trocarAba('catalogo')">
+              ← Voltar para o Catálogo de Produtos
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- ─── Modal "Ver Detalhes" ─── -->
+  <div class="modal-backdrop" id="details-modal">
+    <div class="modal-dialog">
+      <div class="modal-img-wrap">
+        <img id="modal-img" src="" alt="Foto do Produto" class="modal-img" />
+        <button class="modal-close-btn" id="modal-close-btn" aria-label="Fechar">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <span class="modal-category" id="modal-category">Categoria</span>
+        <h3 class="modal-title" id="modal-title">Título do Produto</h3>
+
+        <div class="modal-prices" id="modal-prices">
+          <!-- Preços renderizados dinamicamente -->
+        </div>
+
+        <div class="modal-desc-box">
+          <h4>Especificações e Detalhes</h4>
+          <p id="modal-desc">Carregando descrição...</p>
+        </div>
+
+        <a href="#" id="modal-cta-btn" target="_blank" rel="noopener" class="modal-cta-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.12-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.02 2.6c.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29z"/>
+          </svg>
+          <span>Falar com a Loja no WhatsApp sobre este item</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Footer com Endereço e Google Maps ─── -->
+  <footer class="footer-section" id="como-chegar">
+    <div class="footer-container">
+      <div class="footer-col">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+          <img src="./logo.svg" alt="Logo" style="width: 44px; height: 44px; border-radius: 50%;" />
+          <h3 id="footer-store-name" style="margin-bottom: 0;">Agropecuária Oliveira</h3>
+        </div>
+        <p>
+          Atendendo toda a região de Ipiranga-PR com compromisso, qualidade em nutrição animal, sementes, rações e ferramentas para sua propriedade rural.
+        </p>
+        
+        <div class="footer-info-item">
+          <span class="footer-info-icon">📍</span>
+          <span id="footer-address">Rua Teresa de Jesus, 196, CEP: 84450-000 - Ipiranga - PR</span>
+        </div>
+
+        <div class="footer-info-item">
+          <span class="footer-info-icon">🕒</span>
+          <span id="footer-hours">Segunda a Sexta: 08:00 às 18:00 | Sábado: 08:00 às 12:00</span>
+        </div>
+
+        <div class="footer-info-item">
+          <span class="footer-info-icon">💬</span>
+          <span>WhatsApp da Loja: <strong>(42) 99952-2019</strong></span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h3>Como Chegar (Localização)</h3>
+        <p>Venha nos visitar na nossa loja física:</p>
+        <div class="footer-maps-wrap">
+          <iframe
+            id="maps-iframe"
+            src="https://maps.google.com/maps?q=Rua+Teresa+de+Jesus,+196,+Ipiranga+-+PR,+84450-000&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localização da Agropecuária Oliveira no Google Maps"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Agropecuária Oliveira • Todos os direitos reservados.</p>
+      <p>
+        Desenvolvido por <strong>EmolTech</strong> (contato.emoltech@gmail.com • 42 999522019)
+      </p>
+    </div>
+  </footer>
+
+  <!-- ─── Botão Flutuante do WhatsApp ─── -->
+  <a
+    href="#"
+    id="floating-whatsapp"
+    target="_blank"
+    rel="noopener"
+    class="floating-whatsapp"
+    aria-label="Falar conosco no WhatsApp"
+    title="Falar no WhatsApp"
+  >
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.23 8.23 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.12-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.02 2.6c.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29z"/>
+    </svg>
+  </a>
+
+  <!-- Configurações e Script -->
+  <script src="./config.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
